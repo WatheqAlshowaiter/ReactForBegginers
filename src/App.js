@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Card from "./Card";
+import User from "./User";
 
 function App() {
 	return (
 		<>
-			<Card cardHeading="this is card 1" displayTextPositive={true} />
+			<User />
 		</>
 	);
 }
