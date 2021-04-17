@@ -1,18 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Counter from "./Counter";
-
-// const color = "crismon";
-const data = {
-	color: "reddd",
-	size: "very bigg",
-};
+import Card from "./Card";
 
 function App() {
 	return (
-		<Counter {...data} colored number={456456}>
-			this is just a text for the counter
-		</Counter>
+		<>
+			<Card cardHeading="this is card 1" displayText={false} />
+			<Card cardHeading="this is card 2" displayText />
+		</>
 	);
 }
 
