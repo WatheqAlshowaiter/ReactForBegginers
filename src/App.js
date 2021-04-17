@@ -5,8 +5,7 @@ import Card from "./Card";
 function App() {
 	return (
 		<>
-			<Card cardHeading="this is card 1" displayText={false} />
-			<Card cardHeading="this is card 2" displayText />
+			<Card cardHeading="this is card 1" displayTextPositive={true} />
 		</>
 	);
 }
