@@ -1,0 +1,11 @@
+button {
+	background-color: crimson;
+	color: white;
+	padding: 4px;
+	margin: 0px;
+	border-radius: 3px;
+	border: none;
+}
+button:hover {
+	cursor: pointer;
+}
