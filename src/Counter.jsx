@@ -22,7 +22,12 @@ export default class Counter extends React.Component {
 	render() {
 		return (
 			<div>
+				<h2>Counter color: {this.props.color}</h2>
+				<h2>Counter size: {this.props.size}</h2>
 				<h1>Total CLicks: {this.state.totalClicks}</h1>
+				<p>colored? {this.props.colored.toString()}</p>
+				<p>number: {this.props.number}</p>
+				<p>counter text: {this.props.children}</p>
 				<button onClick={this.increaseCLicks.bind(this)}>
 					Increase clicks
 				</button>
