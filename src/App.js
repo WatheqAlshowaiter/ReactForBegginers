@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Button from "./Button";
+
+
+import Records from "./Records";
 
 // class Test {
 // 	testing() {
@@ -17,7 +19,7 @@ import Button from "./Button";
 function App() {
 	return (
 		<>
-			<Button />
+			<Records />
 		</>
 	);
 }
