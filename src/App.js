@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-
-import Records from "./Records";
+// import Records from "./Records";
+import FunctionCard from "./FunctionCard";
 
 // class Test {
 // 	testing() {
@@ -19,7 +19,7 @@ import Records from "./Records";
 function App() {
 	return (
 		<>
-			<Records />
+			<FunctionCard />
 		</>
 	);
 }
