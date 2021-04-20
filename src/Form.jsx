@@ -5,15 +5,17 @@ export default class Form extends Component {
 	constructor(props) {
 		super(props);
 
-		this.getInputComponentRef = (inputComponent) => {
-			console.log(inputComponent.getInputName());
+		this.inputRef = (element) => {
+			setTimeout(() => {
+				element.focus();
+			}, 3000);
 		};
 	}
 
 	render() {
 		return (
 			<form>
-				<Input ref={this.getInputComponentRef} />
+				<Input ref={this.inputRef} />
 			</form>
 		);
 	}
