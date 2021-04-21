@@ -1,0 +1,15 @@
+    .item-input-wrapper{
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+    }
+
+    .item-input{
+        padding: .5rem;
+        min-width: 200px;
+        border: 1px solid coral;
+    }
+
+    .item-input:focus{
+        border: 1px solid crimson
+
+    }

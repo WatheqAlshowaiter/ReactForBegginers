@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ItemInput from "../item-input/ItemInput";
 import "./list-items.css";
 
 export default class ListItems extends Component {
@@ -13,7 +14,15 @@ export default class ListItems extends Component {
 		});
 	};
 
-	addNewItems = () => {};
+	closeInput = () => {};
+
+	addNewItem = (value) => {
+		let items = this.state.items;
+		items.push(value);
+		this.setState({
+			items,
+		});
+	};
 
 	render() {
 		return (
@@ -23,7 +32,11 @@ export default class ListItems extends Component {
 					Add Input
 				</button>{" "}
 				{this.state.inputIsOpened && (
-					<input placeholder="writh list item then click Enter" />
+					<ItemInput
+						onFinish={this.addNewItem}
+						onClose={this.closeInput}
+						placeholder="writh list item then click Enter"
+					/>
 				)}
 			</div>
 		);
