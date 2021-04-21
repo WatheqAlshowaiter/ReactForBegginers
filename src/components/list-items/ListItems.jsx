@@ -14,7 +14,11 @@ export default class ListItems extends Component {
 		});
 	};
 
-	closeInput = () => {};
+	closeInput = () => {
+		this.setState({
+			inputIsOpened: false,
+		});
+	};
 
 	addNewItem = (value) => {
 		let items = this.state.items;
@@ -38,6 +42,15 @@ export default class ListItems extends Component {
 						placeholder="writh list item then click Enter"
 					/>
 				)}
+				<ul className="list-items">
+					{this.state.items.map((item, index) => {
+						return (
+							<li className="list-item" key={index}>
+								{item}
+							</li>
+						);
+					})}
+				</ul>
 			</div>
 		);
 	}

@@ -14,6 +14,7 @@ export default function ItemInput(props) {
 
 		if (pressedButtonCode === ENTER_KEY) {
 			onFinish(value);
+			value = "";
 		} else if (pressedButtonCode === ESCAPE_KEY) {
 			onClose();
 		}
@@ -25,6 +26,7 @@ export default function ItemInput(props) {
 				type="text"
 				className="item-input"
 				{...otherInputProps}
+				autoFocus
 			/>
 		</div>
 	);
