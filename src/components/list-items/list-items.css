@@ -29,3 +29,16 @@
 	box-shadow: 0 3px rgb(0, 0, 0);
 	transform: translateY(3px);
 }
+
+.list-items {
+	padding-left: 0;
+}
+
+.list-item {
+	list-style: none;
+	font-size: larger;
+}
+
+.list-item label {
+	cursor: pointer;
+}
