@@ -6,7 +6,7 @@ const itemIsCheckedByDefault = false;
 
 function DisplayItems(props) {
 	let { items, onCheck } = props;
-	console.log(items)
+	console.log(items);
 
 	if (items.length === 0) return null;
 	const detectItemCheckStatus = (e, item, index) => {
@@ -39,8 +39,7 @@ export default class ListItems extends Component {
 		name: "Todo",
 		items: [],
 		inputIsOpened: false,
-		totalCompleted : 0, 
-		
+		totalCompleted: 0,
 	};
 
 	openInput = () => {
@@ -55,20 +54,21 @@ export default class ListItems extends Component {
 		});
 	};
 
-	updateItem = (item, index)=>{
-		let items = this.state.items,
-	
-		// update item 
-		items[index] = item; // a prolem here , do not know why
-	
-		let totalCompletedItems = items.reduce((totalChecked, item)=>{
-			return totalChecked + (item.checked ? 1: 0)
-		},0)
+	updateItem = (item, index) => {
+		let items = this.state.items;
 
-		this.setState({
-			items
-		})
-	}
+		// update item
+		// items[index] = item; // a prolem here , do not know why
+
+		// let totalCompletedItems = items.reduce((totalChecked, item)=>{
+		// return totalChecked + (item.checked ? 1: 0)
+		// },0)
+
+		// this.setState({
+		// items
+		// })
+		return "";
+	};
 
 	addNewItem = (value) => {
 		let items = this.state.items;
@@ -85,7 +85,8 @@ export default class ListItems extends Component {
 		return (
 			<div className="list-items-container">
 				<h1>
-					{this.state.name}: {this.state.totalCompleted} / {this.state.items.length}
+					{this.state.name}: {this.state.totalCompleted} /{" "}
+					{this.state.items.length}
 				</h1>
 				<button onClick={this.openInput} className="add-input-button">
 					Add Input
@@ -96,10 +97,7 @@ export default class ListItems extends Component {
 					onClose={this.closeInput}
 					placeholder="writh list item then click Enter"
 				/>
-				<DisplayItems
-					onCheck={this.updateItem}
-					items={this.state.items}
-				/>
+				<DisplayItems onCheck={this.updateItem} items={this.state.items} />
 			</div>
 		);
 	}
