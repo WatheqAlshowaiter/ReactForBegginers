@@ -1,8 +1,15 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import InputWatcher from "./InputWatcher";
+import CounterEffect from "./CounterEffect";
 function App() {
-	return <InputWatcher />;
+	const [toggleCounter, setToggleCounter] = React.useState(true);
+
+	setTimeout(() => {
+			setToggleCounter(false)
+	}, 3000);
+
+	return <>{toggleCounter && <CounterEffect />}</>;
 }
 
 export default App;
