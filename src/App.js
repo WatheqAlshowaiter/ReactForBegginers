@@ -1,11 +1,20 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import CounterRef from "./CounterRef";
-function App() {
-	const [toggleCounter, setToggleCounter] = React.useState(true);
+import PostCard from "./PostCard";
+import UserContext from "./UserContext";
 
-	return <>{toggleCounter && <CounterRef />}</>;
+const user = {
+	name: "Hasan Ali",
+};
+function App() {
+	return (
+		<>
+			<UserContext.Provider value={user}>
+				<PostCard/>
+			</UserContext.Provider>
+		</>
+	);
 }
 
 export default App;
