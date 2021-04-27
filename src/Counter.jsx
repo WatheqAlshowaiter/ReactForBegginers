@@ -1,37 +1,33 @@
 import React from "react";
 
-export default class Counter extends React.Component {
-	constructor(props) {
-		super(props);
+function factor(number) {
+	const factors = [];
 
-		this.state = {
-			totalClicks: 0,
-		};
-		// this.increaseCLicks = this.increaseCLicks.bind(this); // you can do it here or in the component you will call thr function in
+	let currentNumber = number;
+	while (currentNumber >= 1) {
+		if (Number.isInteger(number / currentNumber)) {
+			factors.push(currentNumber);
+		}
+		currentNumber--;
 	}
-	// new way of creating states in Class Components in React
-	// state = {
-	// 	totalClicks: 0,
-	// };
-	increaseCLicks() {
-		this.setState({
-			totalClicks: this.state.totalClicks + 1,
-		});
-	}
+	console.log(factors);
+	return factors.join(", ");
+}
 
-	render() {
-		return (
-			<div>
-				<h2>Counter color: {this.props.color}</h2>
-				<h2>Counter size: {this.props.size}</h2>
-				<h1>Total CLicks: {this.state.totalClicks}</h1>
-				<p>colored? {this.props.colored.toString()}</p>
-				<p>number: {this.props.number}</p>
-				<p>counter text: {this.props.children}</p>
-				<button onClick={this.increaseCLicks.bind(this)}>
-					Increase clicks
-				</button>
-			</div>
-		);
-	}
+export default function Counter(props) {
+	const [totalClicks, setTotalClicks] = React.useState(0);
+	const numberFactors = React.useMemo(() => {
+		factor(props.number);
+	}, [props.number]);
+	return (
+		<div>
+			<h1>
+				Factors of {props.number} are: {numberFactors}
+			</h1>
+			<h1>Totol Clicks: {totalClicks}</h1>
+			<button onClick={() => setTotalClicks(totalClicks + 1)}>
+				Increase clicks
+			</button>
+		</div>
+	);
 }

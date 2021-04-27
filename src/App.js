@@ -1,18 +1,17 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import PostCard from "./PostCard";
-import UserContext from "./UserContext";
+import Counter from "./Counter";
 
-const user = {
-	name: "Hasan Ali",
-};
 function App() {
+	const [number, updateNumber] = React.useState(18);
+
+	setTimeout(() => {
+		updateNumber(30);
+	}, 3000);
 	return (
 		<>
-			<UserContext.Provider value={user}>
-				<PostCard/>
-			</UserContext.Provider>
+			<Counter number={number} />
 		</>
 	);
 }
