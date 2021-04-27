@@ -1,12 +1,18 @@
 import React from "react";
-import UserCard from "./UserCard";
-import "./card-syles.css";
+import Card from "./Card";
 
-export default function PostCard() {
+const CardControls = (props) => (
+	<div className="card-controls">{props.children}</div>
+);
+const PostBody = (props) => <div className="card-body">{props.children}</div>;
+const PostTitle = (props) => <div className="card-title">{props.children}</div>;
+
+export default function PostCard(props) {
 	return (
-		<div className="post-card">
-			<h3>Post Card</h3>
-			<UserCard />
-		</div>
+		<Card>
+			<PostBody>{props.title}</PostBody>
+			<PostTitle>{props.body}</PostTitle>
+			<CardControls>{props.controls}</CardControls>
+		</Card>
 	);
 }
