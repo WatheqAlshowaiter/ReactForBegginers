@@ -1,33 +1,27 @@
 import React from "react";
 
-function factor(number) {
-	const factors = [];
-
-	let currentNumber = number;
-	while (currentNumber >= 1) {
-		if (Number.isInteger(number / currentNumber)) {
-			factors.push(currentNumber);
-		}
-		currentNumber--;
+const initialState = { totalClicks: 0 };
+function reducer(state, action) {
+	if (action === "increment") {
+		return {
+			totalClicks: state.totalClicks + 1,
+		};
+	} else if (action === "decrement") {
+		return {
+			totalClicks: state.totalClicks - 1,
+		};
 	}
-	console.log(factors);
-	return factors.join(", ");
+	return state;
 }
 
 export default function Counter(props) {
-	const [totalClicks, setTotalClicks] = React.useState(0);
-	const numberFactors = React.useMemo(() => {
-		factor(props.number);
-	}, [props.number]);
+	const [state, dispatch] = React.useReducer(reducer, initialState);
+
 	return (
 		<div>
-			<h1>
-				Factors of {props.number} are: {numberFactors}
-			</h1>
-			<h1>Totol Clicks: {totalClicks}</h1>
-			<button onClick={() => setTotalClicks(totalClicks + 1)}>
-				Increase clicks
-			</button>
+			<h1>Totol Clicks: {state.totalClicks}</h1>
+			<button onClick={() => dispatch("increment")}>Increase clicks</button>
+			<button onClick={() => dispatch("decrement")}>Decrease clicks</button>
 		</div>
 	);
 }
