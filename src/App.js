@@ -1,19 +1,15 @@
 import React from "react";
 import "./App.css";
+import Card, { CardWithBorder } from "./HOC/Card";
+import Paragraph, { BorderedParagraph } from "./HOC/Paragraph";
 
 function App() {
-	// const [inputValue, setInputValue] = React.useState("initial value"); // using states (controlled component)
-	// const inputRef = React.createRef();
-	const [disabled, disapleInput] = React.useState(false);
-	const changeOtherImput = (e) => {
-		// inputRef.current.value = e.target.value;
-		disapleInput(e.target.value === "welcome");
-	};
-
 	return (
 		<>
-			<input type="text" onChange={changeOtherImput} />
-			<input type="text" disabled={disabled} />
+			<Card>Original Card</Card>
+			<CardWithBorder>bordered card</CardWithBorder>
+			<Paragraph>this is my Paragraph </Paragraph>
+			<BorderedParagraph>this is bordered Paragraph</BorderedParagraph>
 		</>
 	);
 }
